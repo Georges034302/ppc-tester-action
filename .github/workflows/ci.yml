@@ -20,17 +20,20 @@ jobs:
       - name: Run Vowel Frequency Analyzer
         id: vowel_freq
         run: |
-          # Run the frequency.py script to calculate the vowel frequency
+          # Run the frequency.py script to calculate the vowel frequency          
           FREQ_RESULT=$(python3 .github/scripts/frequency.py 'data.txt')
           echo "FREQ_RESULT=$FREQ_RESULT" >> $GITHUB_ENV
 
-      - name: Update index.html with Frequency
+      - name: Update index.html
         run: |
           FREQ_RESULT="${{ env.FREQ_RESULT }}"
           GITHUB_USER="${{ github.actor }}"
-          bash .github/scripts/update_index.sh "$FREQ_RESULT" "$GITHUB_USER"
+          #Team Leader Update index.HTML
+          if [ "${{ github.actor }}" == "Georges034302" ]; then
+            bash .github/scripts/update_index.sh "$FREQ_RESULT" "$GITHUB_USER"
+          fi
 
-      - name: Update README with Frequency
+      - name: Update README 
         run: |
           FREQ_RESULT="${{ env.FREQ_RESULT }}"
           GITHUB_USER="${{ github.actor }}"
