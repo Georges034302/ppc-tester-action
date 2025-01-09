@@ -22,12 +22,12 @@ runs:
       run: |
         python3 .github/scripts/frequency.py ${{ inputs.file }}
 
-    - name: Update index.html with Vowel Frequency
-      shell: bash
-      run: |
-        bash .github/scripts/update_index.sh
+    # - name: Update index.html with Vowel Frequency
+    #   shell: bash
+    #   run: |
+    #     bash .github/scripts/update_index.sh
 
-    - name: Update README with Vowel Frequency
-      shell: bash
-      run: |
-        bash .github/scripts/update_readme.sh
+    # - name: Update README with Vowel Frequency
+    #   shell: bash
+    #   run: |
+    #     bash .github/scripts/update_readme.sh

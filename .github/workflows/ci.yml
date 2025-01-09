@@ -21,6 +21,12 @@ jobs:
           FREQ_RESULT=$(python3 .github/scripts/frequency.py 'data.txt')
           echo "FREQ_RESULT=$FREQ_RESULT" >> $GITHUB_ENV
 
+      - name: Update index.html with Frequency
+        run: |
+          FREQ_RESULT="${{ env.FREQ_RESULT }}"
+          GITHUB_USER="${{ github.actor }}"
+          bash .github/scripts/update_index.sh "$FREQ_RESULT" "$GITHUB_USER"
+
       - name: Update README with Frequency
         run: |
           FREQ_RESULT="${{ env.FREQ_RESULT }}"
