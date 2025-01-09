@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
   analyze:
@@ -12,25 +11,18 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set Up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
-
-      # - name: Run Vowel Frequency Analyzer
-      #   id: vowel_freq
-      #   run: |
-      #     # Run the frequency.py script to calculate the vowel frequency
-      #     FREQ_RESULT=$(python3 .github/scripts/frequency.py 'data.txt')
-      #     echo "FREQ_RESULT=$FREQ_RESULT" >> $GITHUB_ENV
-      - name: Use Vowel Frequency Analyzer
-        uses: ./github/actions/vowel-frequency-analyzer
-        with:
-          file: data.txt
+      - name: Run Vowel Frequency Analyzer
+        id: vowel_freq
+        run: |
+          # Run the frequency.py script to calculate the vowel frequency
+          FREQ_RESULT=$(python3 .github/scripts/frequency.py 'data.txt')
+          echo "FREQ_RESULT=$FREQ_RESULT" >> $GITHUB_ENV
 
       - name: Update index.html with Frequency
         run: |
