@@ -29,6 +29,10 @@ jobs:
         with:
           file: data.txt
 
+      - name: List files in action directory
+        run: ls -alh .github/actions/vowel-frequency-analyzer/
+
+
       - name: Update index.html with Frequency
         run: |
           FREQ_RESULT="${{ env.FREQ_RESULT }}"
