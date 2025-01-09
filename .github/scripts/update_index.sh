@@ -12,7 +12,7 @@ sed -i '/<\/body>/i <p>Updated by Team Leader: '"[$GITHUB_USER - $FREQ_RESULT - 
 git config --global user.name "github-actions"
 git config --global user.email "github-actions@users.noreply.github.com"
 
-# Add README.md to git, commit, and push the changes
+# Add index.html to git, commit, and push the changes
 git add index.html
 git commit -m "Update index.html with vowel frequency results"
 git push
