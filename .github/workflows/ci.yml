@@ -14,12 +14,16 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Run Vowel Frequency Analyzer
-        id: vowel_freq
-        run: |
-          # Run the frequency.py script to calculate the vowel frequency
-          FREQ_RESULT=$(python3 .github/scripts/frequency.py 'data.txt')
-          echo "FREQ_RESULT=$FREQ_RESULT" >> $GITHUB_ENV
+      # - name: Run Vowel Frequency Analyzer
+      #   id: vowel_freq
+      #   run: |
+      #     # Run the frequency.py script to calculate the vowel frequency
+      #     FREQ_RESULT=$(python3 .github/scripts/frequency.py 'data.txt')
+      #     echo "FREQ_RESULT=$FREQ_RESULT" >> $GITHUB_ENV
+      - name: Use Vowel Frequency Analyzer
+        uses: ./github/actions/vowel-analyzer
+        with:
+          file: data.txt
 
       - name: Update index.html with Frequency
         run: |
