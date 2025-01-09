@@ -18,6 +18,10 @@ jobs:
         with:
           python-version: '3.9'
 
+      
+      - name: List files in action directory
+        run: ls -alh .github/actions/vowel-frequency-analyzer/
+
       # - name: Run Vowel Frequency Analyzer
       #   id: vowel_freq
       #   run: |
@@ -28,10 +32,6 @@ jobs:
         uses: ./github/actions/vowel-frequency-analyzer
         with:
           file: data.txt
-
-      - name: List files in action directory
-        run: ls -alh .github/actions/vowel-frequency-analyzer/
-
 
       - name: Update index.html with Frequency
         run: |
