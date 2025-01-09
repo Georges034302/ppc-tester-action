@@ -21,7 +21,7 @@ jobs:
       #     FREQ_RESULT=$(python3 .github/scripts/frequency.py 'data.txt')
       #     echo "FREQ_RESULT=$FREQ_RESULT" >> $GITHUB_ENV
       - name: Use Vowel Frequency Analyzer
-        uses: ./github/actions/vowel-analyzer
+        uses: ./github/actions/vowel-frequency-analyzer
         with:
           file: data.txt
 
