@@ -12,15 +12,14 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set Up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
-      
-      - name: List files in action directory
-        run: ls -alh .github/actions/vowel-frequency-analyzer/
 
       # - name: Run Vowel Frequency Analyzer
       #   id: vowel_freq
